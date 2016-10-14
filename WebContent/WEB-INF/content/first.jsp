@@ -50,7 +50,7 @@ a:active {
 <body>
 <div style="left: 30%; position: absolute; top: 35%;">
 
-<h1 style="text-align:center">BookDB</h1>
+<h1 style="text-align:center">已经被我修改了哈哈哈哈哈哈哈哈</h1>
 <a href="http://1.bookdbapp.applinzi.com/AddNewBook" >AddNewBook </a><br>
 <a href="http://1.bookdbapp.applinzi.com/AddNewAuthor" >AddNewAuthor </a><br>
 <a href="http://1.bookdbapp.applinzi.com/showallbooks" >ShowAllBooks </a><br>
