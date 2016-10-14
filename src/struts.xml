@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="mess"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+	<constant name="struts.devMode" value="true" />
+	<!-- 所有的Action定义都应该放在package下 -->	
+	<package name="crazyit" namespace="/" extends="struts-default">
+	
+		<!-- 添加book 其中input代表添加book的AuthorID不存在的情况 -->
+		<action name="addbook" class="action.AddBookAction">
+		<result name="input">/WEB-INF/content/AddNewAuthor_special.jsp</result>
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/ShowAllBooks.jsp</result>
+		</action>
+		
+		<!-- 添加Author信息 -->
+		<action name="addauthor" class="action.AddAuthorAction">
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/ShowAllAuthors.jsp</result>
+		</action>
+		
+		<!-- 更新book信息，并且更新的Author不存在，添加Author信息 -->
+		<action name="addauthorwhenupdate" class="action.AddAuthorAction">
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/UpdateSuccessful.jsp</result>
+		</action>
+		
+		<!-- 通过Author搜索他所写的所有book -->
+		<action name="searchbookbyauthor" class="action.ShowBooksByAuthorAction">
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/ShowBooksByAuthor.jsp</result>
+		</action>
+		
+		<!-- 展示book的信息和其作author者的信息 -->
+		<action name="showbookdetail" class="action.ShowBookDetailAction">
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/ShowBookDetail.jsp</result>
+		</action>
+		
+		<!-- 展示所有book的信息 -->
+		<action name="showallbooks" class="action.ShowAllBooksAction">
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/UpdateBookInformation.jsp</result>
+		</action>
+		
+		<!-- 删除一本书book的信息 -->
+		<action name="deletebook" class="action.DeleteBookAction">
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/DeleteSuccessful.jsp</result>
+		</action>
+		
+		<!-- 返回主菜单的信息 -->
+		<action name="returntomainmenu" >
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/first.jsp</result>
+		</action>
+		
+		<!-- 用户选择项目进行更新 -->
+		<action name="chosetoupdate" class="action.ChoseUpdateInformation">
+		<result name="input">/WEB-INF/content/AddNewAuthor_update.jsp</result>
+		<result name="error">/WEB-INF/content/error.jsp</result>
+		<result name="success">/WEB-INF/content/UpdateSuccessful.jsp</result>
+		</action>
+		
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>
+	</package>
+</struts>
